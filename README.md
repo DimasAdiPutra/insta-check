@@ -19,11 +19,34 @@ Website sederhana untuk memeriksa hubungan Followers dan Following Instagram men
 
 ## Cara Menggunakan
 
-1. Unduh data Instagram Anda melalui **Accounts Center** → **Your information and permissions** → **Download your information**
-2. Pilih kategori **Followers and Following**, format **JSON**
-3. Tunggu Instagram mengirimkan file ZIP ke email Anda
-4. Unggah file ZIP ke Insta-Check
-5. Hasil pengecekan akan ditampilkan secara langsung
+<ol>
+       <li>
+        Buka Instagram → Profile → Settings → Accounts Center atau Akun
+        Meta
+       </li>
+       <li>
+        Pilih "Your information and permissions" (Informasi dan izin
+        anda) → "Export your information (Ekspor informasi anda)
+       </li>
+       <li>Klik "Create export" (Buat Ekspor)</li>
+       <li>Pilih Akun yang mau di cek</li>
+       <li>Pilih "Export to Device" (Ekspor ke perangkat)</li>
+       <li>klik Sesuaikan informasi</li>
+       <li>
+        Hapus semuanya kecuali "Followers and following" (Pengikut dan
+        Mengikuti) lalu simpan
+       </li>
+       <li>Pilih Rentang tanggal "3 Bulan Terakhir"</li>
+       <li>Pilih format "JSON"</li>
+       <li>Klik "Start Export" (Mulai Ekspor)</li>
+       <li>
+        Tunggu beberapa saat nanti ada email masuk bisa lakukan cara 1
+        dan 2
+       </li>
+       <li>Scroll kebawah akan ada Unduhan yang tersedia</li>
+       <li>Klik Unduh</li>
+       <li>Unggah file ZIP tersebut di sini</li>
+      </ol>
 
 ## Teknologi
 
