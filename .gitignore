@@ -1,0 +1,33 @@
+# Test files
+/tests/
+tests/
+
+# Data files
+/data/
+data/
+
+# Agent documentation
+/AGENTS.md
+AGENTS.md
+
+# Node modules (if any)
+node_modules/
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build/Output directories
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*

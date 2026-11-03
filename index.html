@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="id">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Insta-Check | Cek Followers & Following Instagram</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔍</text></svg>" />
+	</head>
+	<body>
+		<div class="container">
+			<!-- Halaman Import Data -->
+			<main id="import-page" class="page active">
+				<header class="header">
+					<h1 class="logo">Insta-Check</h1>
+					<p class="tagline">Cek hubungan Followers & Following Instagram</p>
+				</header>
+
+				<div class="card">
+					<div class="card-header">
+						<h2>📂 Unggah Data Instagram</h2>
+						<p>
+							Proses 100% di browser Anda. Data tidak dikirim ke server mana
+							pun.
+						</p>
+					</div>
+
+					<div class="upload-area" id="upload-area">
+						<div class="upload-icon">📁</div>
+						<h3>Drag & Drop file ZIP</h3>
+						<p>Atau klik untuk memilih file</p>
+						<input type="file" id="zip-file" accept=".zip" hidden />
+						<button type="button" class="btn btn-primary" id="browse-btn">
+							Pilih File
+						</button>
+						<p class="file-info">
+							File harus berupa ZIP ekspor Instagram (max 10MB)
+						</p>
+					</div>
+
+					<div class="privacy-notice">
+						<h3>🔒 Privasi Terjamin</h3>
+						<ul>
+							<li>File ZIP diproses secara lokal di browser Anda</li>
+							<li>Tidak ada data yang dikirim ke server</li>
+							<li>Tidak ada penyimpanan permanen</li>
+							<li>Tidak memerlukan login Instagram</li>
+						</ul>
+					</div>
+
+					<div class="guide">
+						<h3>📝 Cara Mendapatkan Data Instagram</h3>
+						<ol>
+							<li>
+								Buka Instagram → Profile → Settings → Accounts Center atau Akun
+								Meta
+							</li>
+							<li>
+								Pilih "Your information and permissions" (Informasi dan izin
+								anda) → "Export your information (Ekspor informasi anda)
+							</li>
+							<li>Klik "Create export" (Buat Ekspor)</li>
+							<li>Pilih Akun yang mau di cek</li>
+							<li>Pilih "Export to Device" (Ekspor ke perangkat)</li>
+							<li>klik Sesuaikan informasi</li>
+							<li>
+								Hapus semuanya kecuali "Followers and following" (Pengikut dan
+								Mengikuti) lalu simpan
+							</li>
+							<li>Pilih Rentang tanggal "3 Bulan Terakhir"</li>
+							<li>Pilih format "JSON"</li>
+							<li>Klik "Start Export" (Mulai Ekspor)</li>
+							<li>
+								Tunggu beberapa saat nanti ada email masuk bisa lakukan cara 1
+								dan 2
+							</li>
+							<li>Scroll kebawah akan ada Unduhan yang tersedia</li>
+							<li>Klik Unduh</li>
+							<li>Unggah file ZIP tersebut di sini</li>
+						</ol>
+					</div>
+				</div>
+
+				<footer class="footer">
+					<p>
+						Dibuat dengan ❤️ untuk analisis media sosial yang lebih transparan
+					</p>
+					<p class="footer-note">
+						Insta-Check adalah alat open-source. Tidak berafiliasi dengan
+						Instagram.
+					</p>
+				</footer>
+			</main>
+
+			<!-- Halaman Results Dashboard -->
+			<main id="results-page" class="page">
+				<header class="dashboard-header">
+					<div class="dashboard-title">
+						<h1>Hasil Pengecekan</h1>
+						<button type="button" class="btn btn-secondary" id="reset-btn">
+							Reset & Upload Baru
+						</button>
+					</div>
+				</header>
+
+				<div class="summary-cards">
+					<div class="summary-card">
+						<div class="summary-icon">👥</div>
+						<div class="summary-content">
+							<h3>Followers</h3>
+							<p class="summary-count" id="followers-count">0</p>
+						</div>
+					</div>
+					<div class="summary-card">
+						<div class="summary-icon">📋</div>
+						<div class="summary-content">
+							<h3>Following</h3>
+							<p class="summary-count" id="following-count">0</p>
+						</div>
+					</div>
+					<div class="summary-card accent">
+						<div class="summary-icon">⚠️</div>
+						<div class="summary-content">
+							<h3>Belum di-follow balik</h3>
+							<p class="summary-count" id="not-following-back-count">0</p>
+						</div>
+					</div>
+					<div class="summary-card accent">
+						<div class="summary-icon">🚫</div>
+						<div class="summary-content">
+							<h3>Tidak follow back</h3>
+							<p class="summary-count" id="not-followed-back-count">0</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="dashboard-content">
+					<div class="tabs">
+						<button type="button" class="tab active" data-tab="followers">
+							Followers
+						</button>
+						<button type="button" class="tab" data-tab="following">
+							Following
+						</button>
+						<button type="button" class="tab" data-tab="not-following-back">
+							Belum di-follow balik
+						</button>
+						<button type="button" class="tab" data-tab="not-followed-back">
+							Tidak follow back
+						</button>
+					</div>
+
+					<div class="search-container">
+						<input
+							type="text"
+							id="search-input"
+							placeholder="Cari username..."
+							class="search-input" />
+						<span class="search-icon">🔍</span>
+					</div>
+
+					<div class="tab-content active" id="followers-content">
+						<div class="empty-state">
+							<div class="empty-icon">👥</div>
+							<h3>Belum ada data</h3>
+							<p>Unggah file ZIP Instagram untuk melihat daftar Followers</p>
+						</div>
+					</div>
+
+					<div class="tab-content" id="following-content">
+						<div class="empty-state">
+							<div class="empty-icon">📋</div>
+							<h3>Belum ada data</h3>
+							<p>Unggah file ZIP Instagram untuk melihat daftar Following</p>
+						</div>
+					</div>
+
+					<div class="tab-content" id="not-following-back-content">
+						<div class="empty-state">
+							<div class="empty-icon">⚠️</div>
+							<h3>Belum ada data</h3>
+							<p>
+								Akun yang mengikuti Anda tetapi tidak Anda ikuti akan muncul di
+								sini
+							</p>
+						</div>
+					</div>
+
+					<div class="tab-content" id="not-followed-back-content">
+						<div class="empty-state">
+							<div class="empty-icon">🚫</div>
+							<h3>Belum ada data</h3>
+							<p>
+								Akun yang Anda ikuti tetapi tidak mengikuti Anda akan muncul di
+								sini
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<footer class="footer">
+					<p>
+						Data diproses 100% di browser Anda. Tutup halaman untuk menghapus
+						semua data.
+					</p>
+				</footer>
+			</main>
+
+			<!-- Loading Overlay -->
+			<div id="loading-overlay" class="loading-overlay">
+				<div class="loading-content">
+					<div class="loading-spinner"></div>
+					<h3>Memproses file ZIP...</h3>
+					<p>Mohon tunggu, data sedang diproses secara lokal di browser Anda</p>
+				</div>
+			</div>
+
+			<!-- Error Overlay -->
+			<div id="error-overlay" class="error-overlay">
+				<div class="error-content">
+					<div class="error-icon">❌</div>
+					<h3 id="error-title">Terjadi Kesalahan</h3>
+					<p id="error-message"></p>
+					<button type="button" class="btn btn-primary" id="close-error-btn">
+						Tutup
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<script src="lib/jszip.min.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
